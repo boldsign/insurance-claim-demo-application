@@ -1,0 +1,45 @@
+@model TemplateDetails
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Address Information";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 center-block">
+            <div class="steps-highlighter"><span class="step-selected"></span><span class="step-selected"></span><span class="count">2 of 2</span></div>
+            <img alt="Address Information Banner" class="address-det left-banner" src="/assets/images/address-banner.png"/>
+        </div>
+        <div class="col-md-7 center-block address">
+            <h1>Address Information</h1>
+            <form method="post" asp-controller="Home" asp-action="SignDocument" onsubmit="disableSubmitButton()">
+                <div class="input-wrapper">
+                    <label for="street">Permanent address <span class="required">*</span></label>
+                    <textarea minlength="4" required id="street" name="Address" type="text" asp-for="@Model.Address"></textarea>
+                </div>
+                <div class="input-wrapper">
+                    <label for="zipcode">Zip code <span class="required">*</span></label>
+                    <input required id="zipcode" name="ZipCode" type="number" asp-for="@Model.ZipCode"/>
+                </div>
+                <div class="input-wrapper">
+                    <label for="email">Email address <span class="required">*</span></label>
+                    <input required id="email" name="EmailAddress"  type="email" asp-for="@Model.EmailAddress"/>
+                </div>
+                <div class="input-wrapper">
+                    <label for="phone">Phone number <span class="required">*</span></label>
+                    <input required id="phone" name="PhoneNumber" type="number" asp-for="@Model.PhoneNumber"/>
+                </div>
+                <div class="btn-wrapper">
+                    <button id="btnSubmit" class="Submit-btn"><span>Submit</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+function disableSubmitButton() {
+    $("#btnSubmit").addClass("spin");
+    return true;
+}
+</script>

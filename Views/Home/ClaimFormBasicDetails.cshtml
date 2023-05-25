@@ -1,0 +1,51 @@
+@model TemplateDetails
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Basic Details";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 center-block">
+                <div class="steps-highlighter"><span class="step-selected"></span><span class="step-unselected"></span><span class="count">1 of 2</span></div>
+                <img alt="Basic Details Banner" class="basic-det left-banner" src="/assets/images/form1-banner.png"/>
+        </div>
+        <div class="col-md-7 center-block basic">
+            <h1>@Model.PolicyType Insurance Claim Form</h1>
+            <form method="post" asp-controller="Home" asp-action="ClaimFormAddressInformation" class="validate">
+                <div class="input-wrapper">
+                    <label for="policyno">Policy no <span class="required">*</span></label>
+                    <input id="policyno" minlength="4" required name="PolicyNumber" type="text" asp-for="@Model.PolicyNumber"/>
+                </div>
+                <div class="input-wrapper">
+                    <label for="fullname">Full name <span class="required">*</span></label>
+                    <input id="fullname" required name="FullName" type="text" asp-for="@Model.FullName"/>
+                </div>
+                <div class="input-wrapper">
+                    <label for="dob">Date of birth <span class="required">*</span></label>
+                    <input min="01/01/1900" required id="dob" name="DOB" type="date" asp-for="@Model.DOB"/>
+                </div>
+                <div class="input-wrapper">
+                    <label class="lbl-styles radio">Gender <span class="required">*</span></label>
+                    <label for="male" class="custom-radio">
+                        <input id="male" checked name="Gender" type="radio" value="male" asp-for="@Model.Gender"/>
+                        <span class="checkmark"></span>
+                        Male
+                    </label>
+                    <label for="female" class="custom-radio">
+                        <input id="female" name="Gender" type="radio" value="Female" asp-for="@Model.Gender"/>
+                        <span class="checkmark"></span>
+                        Female
+                    </label>
+                </div>
+                <div class="input-wrapper">
+                    <label for="message">Damage details <span class="required">*</span></label>
+                    <textarea minlength="4" required id="message" name="DamageDetails" type="text" asp-for="@Model.DamageDetails"></textarea>
+                </div>
+                <div class="btn-wrapper">
+                    <button id="btnSubmit" class="Submit-btn">Continue</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

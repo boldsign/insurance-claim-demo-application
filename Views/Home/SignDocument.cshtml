@@ -1,0 +1,32 @@
+@model TemplateDetails
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Signing Process";
+}
+<script>
+    var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+    var eventer = window[eventMethod];
+    var messageEvent = eventMethod === "attachEvent" ? "onmessage" : "message";
+
+    // Listen to message from child window
+    eventer(messageEvent, function (e) {
+        console.log('parent received message!:  ', e.data);
+
+         if (e.data.action === "onDocumentSigned") {
+            console.log("Completed ")
+            window.location.href = `/thank-you/?documentId=@Model.DocumentId`;
+        }   
+    }, false);
+    
+</script>
+
+<div class="content-wrapper claim-form">
+    <div class="loading-document">
+        <h1>Review and Sign</h1>
+        <div>
+            <p>Please review the document carefully, attach your ID proof, and proceed with signing to submit your claim.</p>
+        </div>
+        <iframe id="iframeID" src="@Model.SignLink"></iframe>
+    </div>
+</div>

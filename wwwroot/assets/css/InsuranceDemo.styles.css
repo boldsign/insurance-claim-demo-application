@@ -1,0 +1,541 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('./../fonts/Inter/Inter-VariableFont_slnt,wght.ttf');
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('./../fonts/Poppins/Poppins-Thin.ttf');
+    font-weight: 100;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('./../fonts/Poppins/Poppins-ExtraLight.ttf');
+    font-weight: 200;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('./../fonts/Poppins/Poppins-Light.ttf');
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('./../fonts/Poppins/Poppins-Regular.ttf');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('./../fonts/Poppins/Poppins-Medium.ttf');
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('./../fonts/Poppins/Poppins-SemiBold.ttf');
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('./../fonts/Poppins/Poppins-Bold.ttf');
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('./../fonts/Poppins/Poppins-ExtraBold.ttf');
+    font-weight: 800;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('./../fonts/Poppins/Poppins-Black.ttf');
+    font-weight: 900;
+}
+:root{
+    --heading-font-family: 'Poppins';
+    --content-font-family: 'Inter';
+    --heading1-font-size: 2.5rem;
+    --heading-line-height: 3.5rem;
+    --content-font-size: 1rem;
+    --content-line-height: 2rem;
+    --content-font-size-small: 0.875rem;
+    --transition: 0.3s ease-in-out;
+    --button-radius: 4px;
+    --tile-radius: 16px;
+    --font-normal: 400;
+    --font-bold: 600;
+    --font-extra-bold: 800;
+    --font-normal-bold: 500;
+    --screen-view-max-width: 1320px;
+    --heading-color: #4A4949;
+    --content-color: #4A4949;
+    --span-color: #29302B;
+    --label-color: #4A4949;
+    --required-color: #FF4444;
+    --theme-color:#F15E45;
+    --light-theme-color:#FFFFFF;
+    --input-border-color: #D1D5DB;
+    --input-content-color: #6B7280;
+    --tile-border-color: #E6E6E6;
+    --button-hover-color: #ce503b;
+    --no-color:transparent;
+    --tile-border: 1px solid var(--tile-border-color);
+    --input-border: 1px solid var(--input-border-color);
+    --clickable-cursor: pointer;
+    --disabled-cursor: no-drop;
+    --no-border: none;
+
+}
+.pb-3{
+    padding-bottom: 0 !important;
+}
+h1{
+    font-size: var(--heading1-font-size);
+    color: var(--heading-color);
+    font-weight: var(--font-bold);
+    line-height: var(--heading-line-height);
+    margin-bottom: 1.5rem;
+    text-transform: capitalize;
+}
+p{
+    font-size: var(--content-font-size);
+    color: var(--content-color);
+    line-height: var(--content-line-height);
+    font-weight: var(--font-normal);
+}
+span{
+    font-size: var(--content-font-size);
+    color: var(--span-color);
+    text-align: center;
+    font-weight: var(--font-bold);
+}
+label{
+    font-weight: var(--font-normal);
+    font-size: var(--content-font-size-small);
+    line-height: 18px;
+    color: var(--label-color);
+    margin-bottom: 8px;
+}
+button, .Submit-btn{
+    font-weight: var(--font-bold);
+    font-size: var(--content-font-size);
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    color: var(--light-theme-color);
+    padding: 8px 32px;
+    background: var(--theme-color);
+    border-radius: var(--button-radius);
+    border: var(--no-border);
+    transition: var(--transition);
+    cursor: var(--clickable-cursor);
+    margin-top: 20px;
+}
+.btn-wrapper button:hover, a:hover {
+    background: var(--button-hover-color);
+}
+button.Submit-btn.spin {
+    position: relative;
+}
+
+.spin::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 3px solid transparent;
+    border-top-color: var(--light-theme-color);
+    border-bottom-color: var(--light-theme-color);
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+}
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+.Submit-btn.spin span {
+    visibility: hidden;
+    opacity: 0;
+}
+.Submit-btn span{
+    color: var(--light-theme-color);
+}
+a{
+    display: inline-block !important;
+    text-decoration: none;
+}
+a:hover{
+    color: var(--light-theme-color);
+    text-decoration: none;
+}
+input, textarea{
+    box-sizing: border-box;
+    width: 372px;
+    background: var(--light-theme-color);
+    border: var(--input-border);
+    border-radius: var(--button-radius);
+    font-weight: var(--font-normal);
+    font-size: var(--content-font-size-small);
+    line-height: 18px;
+    user-select: none;
+    outline: none;
+    display: block;
+    padding: 6px 8px;
+    color: var(--input-content-color);
+}
+input{
+    height: 34px;
+}
+textarea{
+    height: 80px;
+    resize: none;
+}
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: var(--heading-font-family);
+}
+span, p, label, div, button, a{
+    font-family: var(--content-font-family);
+}
+#iframeID {
+     width: 100%;
+     height: 100vh;
+ }
+
+.input-wrapper {
+    margin-bottom: 15px;
+}
+/* hide the original radio button */
+.custom-radio input[type="radio"] {
+    display: none;
+
+}
+/* style the custom radio button */
+.custom-radio .checkmark {
+    display: inline-block;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid var(--input-border-color);
+    vertical-align: middle;
+    margin-right: 0;
+    margin-top: -2px;
+}
+/* style the custom radio button when selected */
+.custom-radio input[type="radio"]:checked + .checkmark:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--theme-color);
+}
+/* add some gap between the label and the custom radio button when selected */
+.custom-radio input[type="radio"]:checked + .checkmark {
+    margin-right: 0;
+    border: 2px solid var(--theme-color);
+}
+label.radio {
+    display: block;
+    margin-bottom: 12px;
+}
+label.custom-radio:not(:last-child) {
+    margin-right: 20px;
+}
+.required{
+    color: var(--required-color);
+}
+/* Vertically & Horozontally Center containers*/
+.centered{
+    text-align: center;
+}
+.center-block{
+    float: none;
+    display: block;
+    margin: 0 auto;
+}
+.container{
+    min-height: calc(100vh - 135px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+}
+/* Claim Type Tiles */
+.claim-type-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 20px;
+}
+.claim-type {
+    background: var(--light-theme-color);
+    border: var(--tile-border);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+    border-radius: var(--tile-radius);
+    width: 162px;
+    height: 148px;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    transition: var(--transition);
+    cursor: var(--clickable-cursor);
+    text-decoration: none;
+}
+.claim-type:hover {
+    background: rgba(241, 94, 69, 0.06);
+    border: 1px solid rgba(241, 94, 69, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+}
+a.claim-type img {
+    margin: 10px auto 16px auto;
+    width: 48px;
+    height: 42px;
+}
+.right {
+    font-size: var(--content-font-size);
+    font-weight: var(--font-bold);
+    color: var(--theme-color);
+    padding-left: 5px;
+}
+.claim-type:not(:last-child){
+    margin-right: 50px;
+}
+
+/* Steps Highlighter */
+span.step-unselected, span.step-selected{
+    width: 143px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 5px;
+}
+span.step-selected {
+    background: var(--theme-color);
+    margin-right: 8px;
+}
+span.step-unselected {
+    background: var(--input-border-color);
+}
+.steps-highlighter .count {
+    display: block;
+    text-align: left;
+}
+.steps-highlighter {
+    margin-top: 20px;
+    margin-left: 60px;
+}
+.col-md-5.center-block img.basic-det {
+    padding-right: 100px;
+    padding-top: 100px;
+}
+.col-md-5.center-block img.address-det {
+    padding-right: 200px;
+    padding-top: 44px;
+}
+.col-md-7.center-block.basic {
+    padding-left: 50px;
+}
+.col-md-7.center-block.address {
+    padding-left: 70px;
+}
+a#downloadBtn {
+    margin-right: 20px;
+    margin-top: 30px;
+    position: relative;
+}
+a#downloadBtn.change {
+    pointer-events: none;
+}
+.col-md-5.center-block img.success-img {
+    padding-right: 10px;
+    padding-top: 10px;
+}
+.col-md-6.center-block img {
+    padding-left: 30px;
+}
+/* Signing Page Styles */
+.loading-document h1 {
+    margin-top: 50px;
+}
+
+.loading-document p {
+    margin-bottom: 50px;
+}
+#iframeID{
+    width:100%;
+    height:100vh;
+}
+.loading-document h2 {
+    margin-bottom: 20px;
+}
+.pb-3 {
+    width: 100%;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 63px;
+    background-color: var(--light-theme-color);
+    border: 1px solid var(--input-border-color);
+}
+.header-shadow{
+    background-color: var(--light-theme-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.header-wrapper {
+    max-width: var(--screen-view-max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+}
+a.home-page-logo:hover {
+    background: var(--no-color);
+}
+.logo img {
+    height: 60px;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+nav li {
+    margin-left: 20px;
+}
+nav a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: var(--content-font-size);
+    line-height: 19px;
+    color: var(--content-color);
+    transition: var(--transition);
+}
+nav a:hover {
+    background: var(--no-color);
+    color: var(--theme-color);
+}
+.footer-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--screen-view-max-width);
+    margin: 0 auto;
+    padding: 10px;
+}
+.logo-footer a img {
+    height: 42px;
+}
+footer {
+    border-top: 1px solid var(--input-border-color);
+}
+.logo-footer a:hover {
+    background: transparent;
+}
+.logo-footer a {
+    text-decoration: none;
+}
+.copy-right {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    color: #68758E;
+}
+
+/* Responsible Media Queries */
+/* Tablet */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+    .center-block {
+        max-width: 50%;
+    }
+    img.left-banner {
+        width: 90%;
+    }
+    .col-md-5.center-block.responsive {
+        align-self: center;
+    }
+    .col-md-7.center-block.responsive {
+        padding-top: 20px;
+    }
+    h1 {
+        font-size: 24px;
+        line-height: 34px;
+    }
+    p {
+        font-size: 16px;
+        line-height: 26px;
+    }
+    .claim-type {
+        width: 130px;
+        height: 120px;
+    }
+    .claim-type:not(:last-child) {
+        margin-right: 20px;
+    }
+}
+/* Mobile */
+@media (max-width: 768px) {
+    .responsive {
+        width: 100%;
+    }
+    .row {
+        width: 100% !important;
+        flex-direction: column;
+    }
+    .center-block {
+        max-width: 100%;
+    }
+    .claim-type-container { 
+        justify-content: space-around;
+    }
+    .center-block img {
+        margin-bottom: 20px;
+    }
+    .claim-type:not(:last-child) {
+        margin-right: 0 !important;        
+        width: 100%;
+        max-width: 148px;
+        margin-bottom: 20px;
+    }
+    .claim-type-container {
+        flex-direction: column;
+    }
+}
+/* Extra Small Device */
+@media (max-width: 480px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .center-block {
+        max-width: 100%;
+    }
+}
+

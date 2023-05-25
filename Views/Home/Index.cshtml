@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Insurance Claim App";
+    ViewBag.Description = "Welcome to the Cubeflakes Insurance Claim Portal! This web application demonstrates insurance claim process by integrating eSignatures using the BoldSign APIs.";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 center-block responsive">
+            <div class="centered">
+                <img class="left-banner" alt="Claim Type Banner" src="/assets/images/claim-type-banner.png"/>
+            </div>
+        </div>
+        <div class="col-md-7 center-block responsive">
+            <h1>Cubeflakes Insurance Claim Portal</h1>
+            <p>Say goodbye to the headaches of traditional claim filing and say hello to the convenience of Cubeflakes Insurance Claim Portal. You can now submit your claim quickly and efficiently, saving you time and stress. Whether you're looking to file a claim for damages to your car, repairs to your home, or a payout for life insurance, Cubeflakes has got you covered.</p>
+            <p>What kind of claim you want to file?</p>
+            <div class="claim-type-container">
+                <a class="claim-type" asp-controller="Home" asp-action="ClaimFormBasicDetails" asp-route-id="Car">
+                    <img alt="Claim Type Car" src="/assets/images/car.svg"/>
+                    <span class="car-span">Car<span class="right">→</span></span>
+                </a>
+                <a class="claim-type" asp-controller="Home" asp-action="ClaimFormBasicDetails" asp-route-id="Home">
+                    <img alt="Claim Type Home" src="/assets/images/home.svg"/>
+                    <span class="home-span">Home<span class="right">→</span></span>
+                </a>
+                <a class="claim-type" asp-controller="Home" asp-action="ClaimFormBasicDetails" asp-route-id="Life">
+                    <img alt="Claim Type Health" src="/assets/images/health.svg"/>
+                    <span class="life-span">Life<span class="right">→</span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

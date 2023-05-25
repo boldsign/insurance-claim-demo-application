@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Description = "Welcome to the Cubeflakes Insurance Claim Portal! This web application demonstrates insurance claim process by integrating eSignatures using the BoldSign APIs.";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - Cubeflakes</title>
+    <meta name="description" content="@ViewBag.Description" />
+    <meta property="og:image" content=@Url.Content("~/assets/images/Cubeflakes_Insurance_Claim_Portal_Featured_Image.jpg") />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/assets/css/InsuranceDemo.styles.css" asp-append-version="true"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script>
+    window.addEventListener('scroll', function() {
+        let header = document.querySelector('header');
+        let scrollPosition = window.scrollY;
+        if (scrollPosition > 0) {
+            header.classList.add('header-shadow');
+        } else {
+            header.classList.remove('header-shadow');
+        }
+    });
+
+    </script>
+</head>
+<body>
+<header>
+    <div class="header-wrapper">
+        <div class="logo">
+            <a class="home-page-logo" href="/">
+                <img alt="Cubeflakes Logo" src="/assets/images/Cubeflakes.png"/>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="https://github.com/boldsign/insurance-claim-demo-application">GitHub Source</a></li>
+                <li><a href="https://boldsign.com/about-us/">About Us</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+<footer>
+    <div class="footer-wrapper">
+        <div class="logo-footer">
+            <a href="https://boldsign.com">
+                <img alt="BoldSign Logo" src="/assets/images/boldsign-logo.svg"/>
+            </a>
+        </div>
+        <div class="copy-right">
+            Copyright 2001-2023 Syncfusion Inc. All Rights Reserved
+        </div>
+    </div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,57 @@
+@page "/Home/SignCompleted"
+@model TemplateDetails
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Thank you";
+}
+<script>
+$(window).on("load", function (e){
+    if(window.location.search !=null){
+        // Get the document ID from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const documentId = urlParams.get('documentId');
+        
+        // Poll the getStatus endpoint every 2 seconds
+        const pollIntervalMs = 2000;
+        let pollTimeoutId;        
+        function pollStatus() {
+          fetch(`/home/getStatus/${documentId}`)
+            .then(data => {
+              if (data.status === 200) {                  
+                // Update the text of the download button
+                document.getElementById('download-text').textContent = "Download"; 
+                document.getElementById('downloadBtn').classList.remove("change");
+                // Stop polling
+                clearTimeout(pollTimeoutId);
+              } else {
+                // Continue polling
+                pollTimeoutId = setTimeout(pollStatus, pollIntervalMs);
+              }
+            })
+            .catch(error =>  {debugger; console.error(error)});
+        }
+        
+        // Start polling
+        pollTimeoutId = setTimeout(pollStatus, pollIntervalMs);
+    }
+});
+</script>
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 center-block">
+            <h1>Claim submitted successfully!</h1>
+            <p>Thank you for submitting your claim with Cubeflakes Insurance Claim Portal. We appreciate your trust in our platform to handle your insurance needs. Our team will carefully review your claim and process it as quickly as possible. You can expect to hear from us soon regarding the status of your claim.</p>
+            <p>You can download the signed document for your reference in the meantime.</p>
+            <a class="Submit-btn change" id="downloadBtn" asp-controller="Home" asp-action="DownloadDocument"><span id="download-text">Please wait ...</span></a>
+            <a class="Submit-btn" id="homeBtn" href="/">Home</a>
+        </div>
+        <div class="col-md-6 center-block">
+            <img alt="Success Banner" class="success-img" src="/assets/images/success-final-banner.png"/>
+        </div>
+    </div>
+</div>
