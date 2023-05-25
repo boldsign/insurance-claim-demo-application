@@ -13,6 +13,12 @@
         <div class="col-md-7 center-block address">
             <h1>Address Information</h1>
             <form method="post" asp-controller="Home" asp-action="SignDocument" onsubmit="disableSubmitButton()">
+                @Html.HiddenFor(Model => Model.PolicyType)
+                @Html.HiddenFor(model => model.PolicyNumber)
+                @Html.HiddenFor(model => model.FullName)
+                @Html.HiddenFor(model => model.DOB)
+                @Html.HiddenFor(model => model.Gender)
+                @Html.HiddenFor(model => model.DamageDetails)
                 <div class="input-wrapper">
                     <label for="street">Permanent address <span class="required">*</span></label>
                     <textarea minlength="4" required id="street" name="Address" type="text" asp-for="@Model.Address"></textarea>
@@ -23,7 +29,7 @@
                 </div>
                 <div class="input-wrapper">
                     <label for="email">Email address <span class="required">*</span></label>
-                    <input required id="email" name="EmailAddress"  type="email" asp-for="@Model.EmailAddress"/>
+                    <input required id="email" name="EmailAddress" type="email" asp-for="@Model.EmailAddress"/>
                 </div>
                 <div class="input-wrapper">
                     <label for="phone">Phone number <span class="required">*</span></label>

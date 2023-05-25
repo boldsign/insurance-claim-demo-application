@@ -54,7 +54,6 @@ public class HomeController : Controller
 
         // TODO: Update your webhook secret key
         var SECRET_KEY = Environment.GetEnvironmentVariable("WEBHOOKKEY");
-
         try
         {
             WebhookUtility.ValidateSignature(json, this.Request.Headers[WebhookUtility.BoldSignSignatureHeader], SECRET_KEY);
@@ -85,12 +84,7 @@ public class HomeController : Controller
     // Action for ClaimForm Basic Details
     public IActionResult ClaimFormBasicDetails([FromRoute] string id)
     {
-        var storageModel = HttpContext.Items["TemplateDetails"] as TemplateDetails;
-        var templateId = id.Substring(0, 1).ToUpper() + id.Substring(1);;
-        if (storageModel != null)
-        {
-            storageModel.PolicyType = templateId;
-        }
+        var templateId = id.Substring(0, 1).ToUpper() + id.Substring(1);
         var templateDetails = new TemplateDetails();
         templateDetails.PolicyType = templateId;
         return View(templateDetails);
@@ -99,17 +93,6 @@ public class HomeController : Controller
     // Action for ClaimForm Address Information
     public IActionResult ClaimFormAddressInformation(TemplateDetails templateDetails)
     {
-        // Store basic details as template details object
-        var storageModel = HttpContext.Items["TemplateDetails"] as TemplateDetails;
-        if (storageModel != null)
-        {
-            storageModel.FullName=  templateDetails.FullName;
-            storageModel.Gender = templateDetails.Gender;
-            storageModel.DOB= templateDetails.DOB;
-            storageModel.PolicyNumber= templateDetails.PolicyNumber;
-            storageModel.DamageDetails= templateDetails.DamageDetails;
-            storageModel.InsuredObject = storageModel.PolicyType.ToUpper();
-        }
         return View(templateDetails);
     }
     
@@ -127,14 +110,8 @@ public class HomeController : Controller
 
     // Download the document using DocumentId
     [HttpGet]
-    public async Task<IActionResult> DownloadDocument()
+    public async Task<IActionResult> DownloadDocument(string id)
     {
-        var storageModel = HttpContext.Items["TemplateDetails"] as TemplateDetails;
-        var id = string.Empty;
-        if (storageModel != null)
-        {
-            id= storageModel.DocumentId;
-        }
         var document =await documentClient.DownloadDocumentAsync(id).ConfigureAwait(false);
         var contentType = "application/pdf"; // Set the content type of the file
         var fileName = "Copy_InsuranceClaimForm.pdf"; // Set the file name
@@ -146,20 +123,8 @@ public class HomeController : Controller
     // Create EmbedSignLink for the document
     public async Task<IActionResult> SignDocument(TemplateDetails templateDetails)
     {
-        // Collect all the basic form fields from the model
-        var storageModel = HttpContext.Items["TemplateDetails"] as TemplateDetails;
-        if (storageModel != null)
-        {
-            templateDetails.PolicyType = storageModel.PolicyType;
-            templateDetails.FullName = storageModel.FullName;
-            templateDetails.Gender = storageModel.Gender;
-            templateDetails.DOB = storageModel.DOB;
-            templateDetails.PolicyNumber = storageModel.PolicyNumber;
-            templateDetails.DamageDetails = storageModel.DamageDetails;
-            templateDetails.InsuredObject = storageModel.InsuredObject;
-        }
+        templateDetails.InsuredObject = templateDetails.PolicyType.ToUpper();
         templateDetails.TemplateId = this.templateId;
-        // templateDetails.ClaimDate = DateTime.Now.ToString("MM/dd/yyyy");
         var documentDetails = new SendForSignFromTemplate()
         {
             Title = "Cubeflakes - Insurance Claim Form",
@@ -269,11 +234,6 @@ public class HomeController : Controller
             DateTime.Now.AddDays(30),
             redirectUrl:$"https://{this.Request.Host}/Home/Responses");
         templateDetails.SignLink = embeddedSignUrl.SignLink; // This SignLink will be loaded into the iframe
-        if (storageModel != null)
-        {
-            storageModel.SignLink = templateDetails.SignLink;
-            storageModel.DocumentId = templateDetails.DocumentId;
-        }
         return View(templateDetails);
     }
 }
