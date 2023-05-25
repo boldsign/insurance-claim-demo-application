@@ -67,24 +67,18 @@ public class HomeController : Controller
         }
 
         var eventPayload = WebhookUtility.ParseEvent(json);
-        var docid = string.Empty;
-        var storageModel = HttpContext.Items["TemplateDetails"] as TemplateDetails;
-        if (storageModel != null)
-        {
-            docid = storageModel.DocumentId;
-        }
+        var doc = eventPayload.Data as DocumentEvent;
         if (eventPayload.Event.EventType == WebHookEventType.Completed)
         {
             Console.WriteLine("Signing process completed");
             // Store the results in the cache with the same document ID
-            _cache.SetString(docid, "completed", new DistributedCacheEntryOptions
+            _cache.SetString(doc.DocumentId, "completed", new DistributedCacheEntryOptions
             {
                 AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10)
             });
             // Return the ID of the document to the client
-            return RedirectToAction("SignCompleted", new { docid });
+            return RedirectToAction("SignCompleted", new { doc.DocumentId });
         }
-
         return this.Ok();
     }
 
