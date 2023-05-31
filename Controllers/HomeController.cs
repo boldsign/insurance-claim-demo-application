@@ -89,7 +89,7 @@ public class HomeController : Controller
     }
     
     //Action for About Page
-    public IActionResult AboutUs()
+    public IActionResult About()
     {
         return View();
     }
@@ -176,6 +176,7 @@ public class HomeController : Controller
         {
             Title = "Cubeflakes - Insurance Claim Form",
             TemplateId = templateDetails.TemplateId,
+            BrandId = Environment.GetEnvironmentVariable("BRANDID"),
             DisableEmails = true,
             Roles = new List<Roles>()
             {

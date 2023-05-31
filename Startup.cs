@@ -85,9 +85,9 @@ namespace InsuranceDemo
                     pattern: "/download/",
                     defaults: new { controller = "Home", action = "DownloadDocument" });
                 endpoints.MapControllerRoute(
-                    name: "about-us",
-                    pattern: "/about-us/",
-                    defaults: new { controller = "Home", action = "AboutUs" });
+                    name: "about",
+                    pattern: "/about/",
+                    defaults: new { controller = "Home", action = "About" });
             });
         }
     }

@@ -91,7 +91,7 @@ h1{
     font-weight: var(--font-bold);
     line-height: var(--heading-line-height);
     margin-bottom: 1.5rem;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
 }
 p{
     font-size: var(--content-font-size);
@@ -544,6 +544,12 @@ span.normal, .container.about-wrapper a, .banner-desc {
 .container.about-wrapper .signup-wrapper a:hover {
     background: var(--button-hover-color);
     color:var(--light-theme-color);
+}
+.review {
+    padding-left: 36px;
+}
+.about-reference-links-wrapper.new-start, .question {
+    padding-top: 20px;
 }
 
 /* Responsible Media Queries */
