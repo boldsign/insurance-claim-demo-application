@@ -87,6 +87,12 @@ public class HomeController : Controller
 
         return this.Ok();
     }
+    
+    //Action for About Page
+    public IActionResult AboutUs()
+    {
+        return View();
+    }
 
     // Action for ClaimForm Basic Details
     public IActionResult ClaimFormBasicDetails([FromRoute] string id)
