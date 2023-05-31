@@ -19,6 +19,6 @@ Check out the blog post - [https://boldsign.com/blogs/integrating-esignatures-in
 
 ##### Other references:
 
-*   BoldSign eSignature API: [https://developers.boldsign.com/](https://boldsign.com/esignature-api/)
+*   BoldSign eSignature API: [https://boldsign.com/esignature-api/](https://boldsign.com/esignature-api/)
 *   BoldSign API documentation: [https://developers.boldsign.com/](https://developers.boldsign.com/)
 *   BoldSign demos: [https://demos.boldsign.com/](https://demos.boldsign.com/)
