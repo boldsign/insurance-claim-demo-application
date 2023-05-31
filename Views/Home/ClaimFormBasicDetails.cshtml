@@ -4,6 +4,13 @@
     Layout = "_Layout";
     ViewBag.Title = "Basic Details";
 }
+<script>
+$(document).ready(function (){
+    let currentDate = new Date();  
+    let defaultDate = new Date(currentDate.getFullYear() - 18, currentDate.getMonth(), currentDate.getDate()); 
+    document.getElementById("dob").value = defaultDate.toISOString().split('T')[0];
+})
+</script>
 <div class="container">
     <div class="row">
         <div class="col-md-5 center-block">
