@@ -22,7 +22,7 @@ $(document).ready(function (){
             <form method="post" asp-controller="Home" asp-action="ClaimFormAddressInformation" class="validate">
                 @Html.HiddenFor(model => model.PolicyType)
                 <div class="input-wrapper">
-                    <label for="policyno">Policy no <span class="required">*</span></label>
+                    <label for="policyno">Policy number <span class="required">*</span></label>
                     <input id="policyno" minlength="4" required name="PolicyNumber" type="text" asp-for="@Model.PolicyNumber"/>
                 </div>
                 <div class="input-wrapper">

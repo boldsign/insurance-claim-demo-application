@@ -11,7 +11,7 @@
             <img alt="Address Information Banner" class="address-det left-banner" src="/assets/images/address-banner.png"/>
         </div>
         <div class="col-md-7 center-block address">
-            <h1>Address Information</h1>
+            <h1>Contact Information</h1>
             <form method="post" asp-controller="Home" asp-action="SignDocument" onsubmit="disableSubmitButton()">
                 @Html.HiddenFor(Model => Model.PolicyType)
                 @Html.HiddenFor(model => model.PolicyNumber)
