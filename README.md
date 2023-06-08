@@ -6,16 +6,16 @@ Welcome to the Cubeflakes Insurance Claim application! This demo application has
 ##### BoldSign API key features used in this application:
 
 *   Single signer
-*   Custom branding identity
+*   Custom branding
 *   Templated document
 *   Attachment field
 *   Pre-filled form fields
 *   Embedded signing
-*   Download signed document
+*   Download of signed document
 
-The blog "Integrating eSignatures in Insurance Claim Applications Using the.NET Framework" has been published. Check out the blog post below for a step-by-step guide on creating an insurance claim application.
+The blog post "Integrating eSignatures in Insurance Claim App using .NET" has been published. Check it out this blog post for a step-by-step guide on creating an insurance claim application.
 
-Check out the blog post - [https://boldsign.com/blogs/integrating-esignatures-into-insurance-claim-app-using-boldsign-apis/](https://boldsign.com/blogs/integrating-esignatures-into-insurance-claim-app-using-boldsign-apis/)
+[https://boldsign.com/blogs/integrating-esignatures-in-insurance-claim-app-using-net/](https://boldsign.com/blogs/integrating-esignatures-in-insurance-claim-app-using-net/)
 
 ##### Other references:
 

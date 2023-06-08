@@ -491,6 +491,12 @@ li.key-item, .highlight {
     font-size: 14px;
     padding-bottom: 6px;
 }
+span.content.highlight-content {
+    color: #544f4f;
+}
+span.highlight-big {
+    font-weight: 700;
+}
 .container.about-wrapper a:hover {
     background: var(--no-color);
     color: var(--theme-color);

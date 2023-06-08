@@ -2,7 +2,7 @@
 @model TemplateDetails
 @{
     Layout = "_Layout";
-    ViewBag.Title = "Thank you";
+    ViewBag.Title = "Thank You";
 }
 <script>
 $(window).on("load", function (e){
@@ -38,16 +38,12 @@ $(window).on("load", function (e){
 });
 </script>
 
-
-
-
-
 <div class="container">
     <div class="row">
         <div class="col-md-6 center-block">
             <h1>Claim submitted successfully!</h1>
-            <p>Thank you for submitting your claim with Cubeflakes Insurance Claim Portal. We appreciate your trust in our platform to handle your insurance needs. Our team will carefully review your claim and process it as quickly as possible. You can expect to hear from us soon regarding the status of your claim.</p>
-            <p>You can download the signed document for your reference in the meantime.</p>
+            <p>Thank you for submitting your claim with the Cubeflakes Insurance Claim Portal. We appreciate your trust in our company to handle your insurance needs. Our team will carefully review your claim and process it as quickly as possible. You can expect to hear from us soon regarding the status of your claim.</p>
+            <p>You can download the signed document for your records in the meantime.</p>
             <a class="Submit-btn change" id="downloadBtn" asp-route-id="asp-route-id-value" asp-controller="Home" asp-action="DownloadDocument"><span id="download-text">Please wait ...</span></a>
             <a class="Submit-btn" id="homeBtn" href="/">Home</a>
         </div>
