@@ -189,7 +189,7 @@ public class HomeController : Controller
                         },
                         new ExistingFormField()
                         {
-                            Id = "txtPolicyNumber",
+                            Id = "txtPolicyNumber1",
                             Value = templateDetails.PolicyNumber,
                         },
                         new ExistingFormField()
